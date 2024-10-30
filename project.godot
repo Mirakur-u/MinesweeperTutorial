@@ -1,0 +1,26 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="MinesweeperTutorial"
+run/main_scene="res://Scenes/main.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://Assets/png-transparent-gray-spiked-ball-art-microsoft-minesweeper-minesweeper-classic-the-minesweeper-naval-mine-mines-game-symmetry-video-game-thumbnail.png"
+
+[display]
+
+window/size/viewport_width=400
+window/size/viewport_height=400
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.158472, 0.158472, 0.158472, 1)

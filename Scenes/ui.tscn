@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0yki5iebf5xj"]
+
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_wkweu"]
+[ext_resource type="FontFile" uid="uid://dm553oftmf5dp" path="res://Assets/DS-DIGIB.TTF" id="2_kylv0"]
+[ext_resource type="Texture2D" uid="uid://c6abyn8bv3r2p" path="res://Assets/button_smile.png" id="3_0jigq"]
+[ext_resource type="Texture2D" uid="uid://c1cm7w0kuxe86" path="res://Assets/button_smile_pressed.png" id="4_7d23c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce8if"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1evr"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_wkweu")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="MineCountPanel" type="Panel" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ce8if")
+
+[node name="MineCountLabel" type="Label" parent="PanelContainer/HBoxContainer/MineCountPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_kylv0")
+theme_override_font_sizes/font_size = 24
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameStatusButton" type="TextureButton" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_0jigq")
+texture_pressed = ExtResource("4_7d23c")
+
+[node name="TimerPanel" type="Panel" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q1evr")
+
+[node name="TimerCountLabel" type="Label" parent="PanelContainer/HBoxContainer/TimerPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_kylv0")
+theme_override_font_sizes/font_size = 24
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/GameStatusButton" to="." method="_on_game_status_button_pressed"]

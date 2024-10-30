@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://dahspps1wry4b"]
+
+[ext_resource type="Texture2D" uid="uid://dafcwvlusk2sy" path="res://Assets/minesweeper_atlas.png" id="1_pgboa"]
+[ext_resource type="Script" path="res://Scripts/tile_map.gd" id="2_eoc6f"]
+[ext_resource type="PackedScene" uid="uid://bpm1vjsipc3et" path="res://Scenes/game_state_manager.tscn" id="3_cwk80"]
+[ext_resource type="PackedScene" uid="uid://b0yki5iebf5xj" path="res://Scenes/ui.tscn" id="4_1fdfk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xvo5y"]
+texture = ExtResource("1_pgboa")
+margins = Vector2i(4, 4)
+separation = Vector2i(8, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/next_alternative_id = 2
+0:2/0 = 0
+0:2/1 = 1
+0:2/1/custom_data_0 = true
+1:2/0 = 0
+2:2/next_alternative_id = 2
+2:2/0 = 0
+2:2/1 = 1
+2:2/1/custom_data_0 = true
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mdbaf"]
+custom_data_layer_0/name = "has_mine"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_xvo5y")
+
+[node name="main" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_mdbaf")
+format = 2
+script = ExtResource("2_eoc6f")
+
+[node name="UI" parent="." instance=ExtResource("4_1fdfk")]
+
+[node name="GameStateManager" parent="." instance=ExtResource("3_cwk80")]
